@@ -2,11 +2,11 @@ import {FilterInput, FilterLable} from './SearchFilter.styled'
 import { FaSearch } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/reducer';
-import { getFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 
 export const Filter = () => {
     const dispatch = useDispatch()
-    const filter = useSelector(getFilter)
+    const filter = useSelector(selectFilter)
     const handleFilterInputChange = e => {
         const value = e.target.value;
         dispatch(setFilter(value))
