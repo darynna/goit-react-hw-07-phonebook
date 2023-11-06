@@ -15,7 +15,6 @@ const phonebookInitialState = {
     async (_, thunkAPI) => {
       try {
         const contacts = await requestContacts();
-        console.log(contacts)
         return contacts;
       } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
