@@ -13,6 +13,7 @@ export const ContactList = () => {
   const dispatch = useDispatch()
   const isLoading = useSelector(selectisLoading)
   const error = useSelector(selectError)
+  const contacts = useSelector(selectVisibleContacts)
 
   useEffect(()=>{
     dispatch(fetchContacts());
@@ -30,7 +31,7 @@ export const ContactList = () => {
     {error && Notify.failure('Sorry, something went wrong!')}
 
     <ContactsList>
-      {selectVisibleContacts && selectVisibleContacts.map(contact => (
+      {contacts && contacts.map(contact => (
         <ContactListItem key={contact.id} contact={contact} handleDeleteContacts={handleDeleteContacts}/>
       ))}
     </ContactsList>
